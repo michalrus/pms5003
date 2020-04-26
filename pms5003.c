@@ -48,10 +48,10 @@ void forced_read(int fd, void *buf, size_t count)
   size_t num_read = 0;
 
   do {
-    int rdlen = read(fd, (char *) buf + num_read, count - num_read);
+    ssize_t rdlen = read(fd, (char *) buf + num_read, count - num_read);
     if (rdlen < 1) {
       fprintf(stderr,
-              "fatal: read() == %d (got %lu of %lu requested): %s\n",
+              "fatal: read() == %zd (got %zu of %zu requested): %s\n",
               rdlen, num_read, count, strerror(errno));
       exit(-1);
     }
@@ -67,7 +67,7 @@ void print_data(size_t num_measurements, double *data)
     "count_2_5um", "count_5um", "count_10um"
   };
 
-  printf("{\"num_measurements\":%lu", num_measurements);
+  printf("{\"num_measurements\":%zu", num_measurements);
 
   for (size_t i = 0; i < sizeof(labels) / sizeof(labels[0]); i++)
     printf(",\"%s\":%.02f", labels[i], data[i]);
