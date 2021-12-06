@@ -73,6 +73,7 @@ void print_data(size_t num_measurements, double *data)
     printf(",\"%s\":%.02f", labels[i], data[i]);
 
   printf("}\n");
+  fflush(stdout);
 }
 
 double avg_sum[12] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
