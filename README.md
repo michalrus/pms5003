@@ -12,6 +12,8 @@ No bullshit approach, does well what needs to be done, and nothing more.
 
 * If you need power management, set your GPIO pins in a shell script, for Christ’s sake.
 
+* If you need to publish to an MQTT broker, pipe the output to `mosquitto_pub`.
+
 **Beware of Python-based solutions** which constantly eat 100% CPU (unless you `sleep` artificially), and around 100× as much RAM, cf.
 
 * https://github.com/kzyapkov/pms5003-logger/pull/2#issuecomment-354683717,
